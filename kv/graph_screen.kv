@@ -1,0 +1,32 @@
+#:import Graph kivy_garden.graph.Graph
+
+
+<GraphScreen>:
+	orientation: 'vertical'
+	size: self.size
+	pos: self.pos
+	cases_graph: cases_graph.__self__
+
+	MDBoxLayout:
+		orientation: 'vertical'
+		size: self.size
+		pos: self.pos
+		padding: (0, 20, 20, 20)
+
+		Graph:
+			id: cases_graph
+			size_hint: 1,.45
+			pos: self.pos
+
+			xlabel:'Last 120 Days'
+			ylabel: 'Total Cases'
+			label_options: {'color': (0,0,0,1)}
+			border_color: (0,0,0,1)
+			padding: 5
+			font_size: dp(15)
+
+			x_grid: True
+			y_grid: True
+			x_grid_label: True
+			y_grid_label: True
+

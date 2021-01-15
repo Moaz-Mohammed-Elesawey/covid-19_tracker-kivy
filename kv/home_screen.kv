@@ -1,0 +1,153 @@
+<HomeScreen>:
+	orientation: 'vertical'
+	size: self.size
+	pos: self.pos
+
+	cases_inc: cases_inc.__self__
+	cases_tot: cases_tot.__self__
+	
+	recovered_inc: recovered_inc.__self__
+	recovered_tot: recovered_tot.__self__
+
+	deaths_inc: deaths_inc.__self__
+	deaths_tot: deaths_tot.__self__
+	
+	select_btn: select_btn.__self__
+
+
+	MDBoxLayout:
+		id: info_boxes_layout
+		orientation: 'vertical'
+		padding: 10
+
+		MDRaisedButton:
+			id: select_btn
+			text: 'Worldwide'
+			size_hint: .8, .1
+			pos_hint: {'top': .97, 'center_x': .5}
+			on_release: app.open_modal()
+
+		MDBoxLayout:
+			orientation: 'vertical'
+			spacing: 20
+			padding: 20
+
+			size_hint: 1, .9
+
+			#cases
+			MDCard:
+				padding: 25, 5
+				orientation: 'vertical'
+				text: 'home'
+				halign: 'center'
+				border_radius: '10dp'
+				elevation: 1
+				focus_behavior: True
+				ripple_behavior: True
+
+				#Header
+				MDLabel:
+					text: 'COVID CASES'
+					bold: True
+					font_size: dp(25)
+					theme_text_color: 'Custom'
+					text_color: (1,0,0,.9)
+					halign: 'center'
+				
+				#inc
+				MDLabel:
+					id: cases_inc
+					text: '+123,435'
+					bold: True
+					font_size: dp(30)
+					theme_text_color: 'Custom'
+					text_color: (1,0,0,.9)
+					halign: 'left'
+				
+				#tot
+				MDLabel:
+					id: cases_tot
+					text: '+11,435,123'
+					bold: True
+					font_size: dp(15)
+					halign: 'left'
+
+
+			#recovered
+			MDCard:
+				padding: 25, 5
+				orientation: 'vertical'
+				text: 'home'
+				halign: 'center'
+				border_radius: '10dp'
+				elevation: 1
+				focus_behavior: True
+				ripple_behavior: True
+	
+				#Header
+				MDLabel:
+					text: 'RECOVERED'
+					bold: True
+					font_size: dp(25)
+					theme_text_color: 'Custom'
+					text_color: (0,1,0,.9)
+					halign: 'center'
+					
+				#inc
+				MDLabel:
+					id: recovered_inc
+					text: '+23,435'
+					bold: True
+					font_size: dp(30)
+					theme_text_color: 'Custom'
+					text_color: (0,1,0,.9)
+					halign: 'left'
+	
+				#tot
+				MDLabel:
+					id: recovered_tot
+					text: '+1,35,123'
+					bold: True
+					font_size: dp(15)
+					halign: 'left'
+
+			
+			#deaths
+			MDCard:
+				padding: 20, 5
+				orientation: 'vertical'
+				text: 'home'
+				border_radius: '10dp'
+				elevation: 1
+				focus_behavior: True
+				ripple_behavior: True
+				halign: 'center'
+
+				#Header
+				MDLabel:
+					text: 'DEATHS'
+					bold: True
+					font_size: dp(25)
+					theme_text_color: 'Custom'
+					text_color: (1,0,0,.9)
+					halign: 'center'
+
+				#inc
+				MDLabel:
+					id: deaths_inc
+					text: '+13,435'
+					bold: True
+					font_size: dp(30)
+					theme_text_color: 'Custom'
+					text_color: (1,0,0,.9)
+					halign: 'left'
+	
+				#tot
+				MDLabel:
+					id: deaths_tot
+					text: '+435,123'
+					bold: True
+					font_size: dp(15)
+					halign: 'left'
+
+

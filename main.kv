@@ -1,0 +1,52 @@
+#:include kv/table_screen.kv
+#:include kv/map_screen.kv
+#:include kv/graph_screen.kv
+#:include kv/home_screen.kv
+#:include kv/countries_list.kv
+
+BoxLayout:
+	id: main_layout
+	orientation: 'vertical'
+
+	screen_manager: screen_manager.__self__
+	table_screen: table_screen.__self__
+	map_screen: map_screen.__self__
+	graph_screen: graph_screen.__self__
+	home_screen: home_screen.__self__
+
+	dial_btn: dial_btn.__self__
+
+	MDToolbar:
+		title: 'COVID-19 TRACKER'
+		#right_action_items: [["home", lambda x: app.change_screen('home_screen')], ['map', lambda x: app.change_screen('map_screen')], ['table', lambda x: app.change_screen('table_screen')], ['graph', lambda x: app.change_screen('graph_screen')]]
+
+	FloatLayout:
+		orientation: 'vertical'
+		size_hint: 1,1
+		pos_hint: {'top': 1, 'center_x': .5}
+
+		ScreenManager:
+			id: screen_manager
+
+			HomeScreen:
+				id: home_screen
+				name: 'home_screen'
+
+			TableScreen:
+				id: table_screen
+				name: 'table_screen'
+			MapScreen:
+				id: map_screen
+				name: 'map_screen'
+			GraphScreen:
+				id: graph_screen
+				name: 'graph_screen'
+
+		MDFloatingActionButtonSpeedDial:
+			id: dial_btn
+			pos_hint: {'top': .1, 'center_x': .5}
+			data: {'home': 'Home', 'map': 'Map', 'table': 'Table', 'graph': 'Graph'}
+			rotation_root_button: True
+			callback: app.callback
+			icon: 'magnify'
+
